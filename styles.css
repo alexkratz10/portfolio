@@ -1,0 +1,211 @@
+/* === Reset Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === Global Styles === */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(126deg,rgba(155, 42, 134, 1) 0%, rgba(181, 145, 0, 1) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(1, 0, 21);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Limit page width for readability === */
+body > * {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === Navigation Bar === */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgb(15, 0, 77);
+    max-width: none;
+    padding: 0;
+  }
+
+  .navbar {
+    display: flex;
+    list-style: none;
+    padding: 0.75rem 0;
+    margin: 0;
+    flex: 1;                    /* fill remaining space */
+    justify-content: center;    /* center nav links */
+    gap: 2rem;
+  }
+
+  .navbar li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+
+  .navbar li a:hover {
+    color: #f39c12;
+  }
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ak-logo-link {
+  flex-shrink: 0; /* keep logo size fixed */
+}
+
+.ak-logo {
+  height: 90px;  /* adjust as needed */
+  width: auto;
+}
+
+
+/* === Header Section === */
+  header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: none;
+  }
+ 
+.sticky-header.sticky {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100vw;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-color: transparent; /* so gradient from ::before shows */
+  z-index: 1000;
+  transform: none;
+  max-width: none;
+}
+
+.sticky-header::before {
+  content: "";
+  position: absolute;   /* absolute inside sticky-header */
+  inset: 0;            /* fill entire sticky-header */
+  z-index: -1;
+  background: linear-gradient(0deg, #ef7e0500 0%, rgb(15, 0, 77) 15%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.sticky-header.fade-in::before {
+  opacity: 1;
+}
+
+  header p {
+    font-size: 2rem;       /* Slightly larger */
+    font-style: italic;       /* Italic for emphasis */
+    color: #313270;           /* A nice dark blue */
+    margin: 0.5rem 0;         /* Vertical spacing */
+    letter-spacing: 0.05em;   /* Slight letter spacing */
+    font-weight: 500;         /* Medium weight */
+  }
+
+  .profile-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 1rem auto;
+  }
+
+/* === Headings === */
+h1 {
+  font-size: 6rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #1a005b;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #1a005b;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem; /* or 2.5rem if you want smaller */
+  }
+
+  header p {
+    font-size: 1.5rem;
+  }
+}
+
+/* === Paragraphs === */
+p {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* === Sections === */
+section {
+  min-height: 100vh; /* Makes each section fill the screen */
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-margin-top: 80px; /* Prevent navbar overlap */
+}
+
+.image-row, .image-row-data {
+  display: flex;
+  flex-wrap: wrap;            /* Allow wrapping */
+  justify-content: center;    /* Center items on both full row and wrap */
+  gap: 10px;
+}
+
+.image-row-data img {
+  flex: 0 0 calc((100% - 20px) / 3);  /* 3 equal images with gap */
+  aspect-ratio: 3 / 2;                /* Maintain proportional shape */
+  object-fit: contain;
+  border-radius: 10%;
+  min-width: 100px;                   /* Prevent shrinking too small */
+  max-width: calc((100% - 200px) / 3); /* Prevent oversized wrapping */
+}
+
+.image-row img {
+  flex: 0 0 calc((100% - 20px) / 3);  /* 3 equal images with gap */
+  aspect-ratio: 3 / 2;                /* Maintain proportional shape */
+  object-fit: cover;
+  border-radius: 10%;
+  min-width: 200px;                   /* Prevent shrinking too small */
+  max-width: calc((100% - 20px) / 3); /* Prevent oversized wrapping */
+}
+
+
+

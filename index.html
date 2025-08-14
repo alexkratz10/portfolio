@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Alexander Kratz | Portfolio</title>
+</head>
+<body>
+
+<nav>
+  <div class="nav-content">
+    <a href="#home" class="ak-logo-link">
+      <img src="Images/AK-logo.png" alt="Alex Kratz Logo" class="ak-logo" />
+    </a>
+    <ul class="navbar">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>            
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <header id="home">
+    <div class="header-content">
+      <img src="Images/profile-pic.jpeg" alt="Photo of Alexander Kratz" class="profile-photo" />
+
+      <div class="sticky-header">
+        <h1>Alexander Kratz</h1>
+      </div>
+
+      <p>Empowering People Through Data</p>
+      <p>Building Better Workplaces</p>
+      <p>Leading with Purpose</p>
+    </div>
+  </header>
+
+    <!-- About Section -->
+     <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm Alex, I am a strategic problem-solver who bridges data, psychology, and technology to drive meaningful organizational change. 
+            With a Master’s in Industrial-Organizational Psychology from the University of Maryland and leadership experience at NASA, 
+            I’ve managed complex programs focused on workforce analytics, strategic planning, and operational performance. 
+            My foundation in people science and process improvement informs everything I build, from dashboards to full-scale systems.
+        </p>
+        <p>
+            At NASA, I led cross-functional initiatives to improve forecasting, hiring strategy, and program delivery. I developed tools in 
+            Power BI, Python, and SQL; automated workflows with Alteryx; and collaborated across engineering, finance, and IT. 
+            Now, I’m expanding my impact by growing my skills as a full-stack developer, combining front-end design and back-end logic to create user-friendly, 
+            data-powered applications. My goal is to build tools that not only visualize insights, but deliver them where they matter most in the 
+            hands of teams, decision-makers, and everyday users.
+        </p>
+        <div class="image-row-data">
+            <img src="Images/python.png" alt="Photo of Python Programming Language Icon" />
+            <img src="Images/SQL.png" alt="Photo of SQL" />
+            <img src="Images/powerbi.png" alt="Photo of Power BI" />
+        </div>
+        <p>
+            I'm especially drawn to projects that sit at the intersection of people, systems, and scalable design. Whether I’m managing a team, 
+            analyzing a workforce, or coding an interface, I focus on empowering others through clarity, usability, and purpose. Outside of work, 
+            you can find me spending time with family, playing soccer, or immersed in a D&D campaign.
+        </p>
+        <div class="image-row">
+            <img src="Images/io-psychology.jpg" alt="Photo of IO Psychology" />
+            <img src="Images/data.png" alt="Photo of Data" />
+            <img src="Images/d20.jpg" alt="Photo of D20" />
+        </div>
+        </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+            <h3>Project 1: Business Management and Performance Office Development</h3>
+            <p>During a major organizational shift from decentralized HR functions to an enterprise-wide model, I was tasked with establishing a Business 
+                Management and Performance Office to support change management efforts. I collaborated closely with teams across Finance, Procurement, 
+                Workforce Planning, and Accountability to break down silos and identify operational synergies. By designing and implementing comprehensive 
+                operational performance and reporting frameworks, including a risk management process, I enhanced transparency and improved decision-making 
+                across the organization.</h3>
+            <p>Skills:  Organizational Design, Business Acumen, Program Management, Change Management, Organizational Development, People Management, Operational Reporting, KPIs, Risk Management</p>
+
+            <h3>Project 2: Workforce Analytics Dashboard</h3>
+            <p>To address the challenge of fragmented workforce data and inefficient reporting, I developed an interactive Workforce Analytics Dashboard 
+                using Power BI. I integrated data from multiple HR systems and automated data refresh processes with Python, streamlining reporting workflows. 
+                This solution empowered leadership with real-time hiring insights, enabling more accurate workforce planning and reducing manual reporting 
+                efforts by 75%.</p>
+
+            <h3>Project 3: NASA Workforce Optimization & Reshaping Initiative</h3>
+            <p>Handpicked by C-suite leadership to lead a strategic Workforce Optimization and Reshaping initiative, I managed cross-functional collaboration 
+                with Finance, Procurement, and HR to gather and validate complex workforce and financial data. I spearheaded scenario planning and workforce 
+                modeling efforts to forecast organizational impacts. The initiative culminated in an interactive dashboard that provided leadership with 
+                actionable insights, driving informed strategic workforce decisions and optimizing resource allocation.</p>         
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <p>For more information, <a href="Alexander-Kratz-Resume.pdf" download>Download My Resume Here</a></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:alexkratz10@gmail.com">alexkratz10@gmail.com</a></p>
+        <p>Phone:  410-967-0926</p>
+        <p>Address:  Westminster, MD</p>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const stickyHeader = document.querySelector('.sticky-header');
+        const nav = document.querySelector('nav');
+        const navHeight = nav.offsetHeight;
+
+        const stickyHeaderOffsetTop = stickyHeader.getBoundingClientRect().top + window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY >= stickyHeaderOffsetTop - navHeight) {
+                if (!stickyHeader.classList.contains('sticky')) {
+                    stickyHeader.classList.add('sticky');
+                    stickyHeader.classList.add('fade-in');
+                }
+            } else {
+                if (stickyHeader.classList.contains('sticky')) {
+                    stickyHeader.classList.remove('sticky');
+                    stickyHeader.classList.remove('fade-in');
+                }
+            }
+        });
+
+        window.onload = () => {
+        if (window.location.hash && window.location.hash !== "#home") {
+            // Instantly scroll to top (no animation)
+            window.scrollTo(0, 0);
+
+            // Clean up the URL hash
+            history.replaceState(null, document.title, "#home");
+        }
+        };
+    });
+    </script>
+
+</body>
+</html>
